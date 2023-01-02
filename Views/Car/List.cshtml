@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Stylesheet"] = "/css/List.css";
+}
+@model IEnumerable<RentCarsApp.Models.Car>
+ 
+<h2>Список автомобилей</h2>
+<p><a asp-action="Create">Добавить авто</a></p>
+<section class="content">
+    @foreach (var item in Model)
+    {
+        <div class="card grow margin-left ">
+            <a href="formularz.html" class="divrel">
+                
+                <img class="card-image" src="~/images/volkswagenpolo.png">
+                <h2 class="card-title">@item.Name</h2>
+                <p class="card-text">Год выпуска: @item.ProductionYear<br>Описание: @item.Description<br>Тип топлива: @item.Fuel<br>Коробка передач: @item.Transmission<br>
+                <br>Цена за день: @item.Price</p>
+            </a> 
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a>
+                <form asp-controller="Home" asp-action="Delete" method="post"  asp-route-id="@item.Id">
+                    <input type="submit" value="Удалить" />
+                </form>
+        </div>    
+    }
+</section>
