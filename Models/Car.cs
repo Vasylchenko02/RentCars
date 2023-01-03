@@ -7,6 +7,7 @@
         public string Description { get; set; }
         public ushort ProductionYear { get; set; }
         public int Price { get; set; }
+        public byte[] Image { get; set; }
         public TransmissionType Transmission { get; set; }
         public FuelType Fuel { get; set; }
     }

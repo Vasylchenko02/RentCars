@@ -16,8 +16,8 @@
                 <p class="card-text">Год выпуска: @item.ProductionYear<br>Описание: @item.Description<br>Тип топлива: @item.Fuel<br>Коробка передач: @item.Transmission<br>
                 <br>Цена за день: @item.Price</p>
             </a> 
-                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a>
-                <form asp-controller="Home" asp-action="Delete" method="post"  asp-route-id="@item.Id">
+                <a asp-action="Edit" asp-controller="Car" asp-route-id="@item.Id">Изменить</a>
+                <form asp-controller="Car" asp-action="Delete" method="post"  asp-route-id="@item.Id">
                     <input type="submit" value="Удалить" />
                 </form>
         </div>    

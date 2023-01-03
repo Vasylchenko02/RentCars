@@ -22,7 +22,7 @@ namespace RentCarsApp.Controllers
         }
         public ActionResult List()
         {
-            return View();
+            return View(db.Cars.ToList());
         }
         public ActionResult Index()
         {
@@ -43,59 +43,45 @@ namespace RentCarsApp.Controllers
 
         // POST: CarController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(Car car)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            db.Cars.Add(car);
+            await db.SaveChangesAsync();
+            return RedirectToAction("List");
         }
 
         // GET: CarController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id != null)
+            {
+                Car? car = await db.Cars.FirstOrDefaultAsync(p => p.Id == id);
+                if (car != null) return View(car);
+            }
+            return NotFound();
         }
-
-        // POST: CarController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(Car car)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            db.Cars.Update(car);
+            await db.SaveChangesAsync();
+            return RedirectToAction("List");
         }
 
-        // GET: CarController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CarController/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(int? id)
         {
-            try
+            if (id != null)
             {
-                return RedirectToAction(nameof(Index));
+                Car? car = await db.Cars.FirstOrDefaultAsync(p => p.Id == id);
+                if (car != null)
+                {
+                    db.Cars.Remove(car);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("List");
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return NotFound();
         }
     }
 }

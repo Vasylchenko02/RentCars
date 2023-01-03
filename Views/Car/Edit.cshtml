@@ -1,0 +1,32 @@
+﻿@model RentCarsApp.Models.Car
+
+<h2>Редактирование авто</h2>
+<form asp-action="edit" asp-controller="car" asp-route-id="@Model.Id">
+    <p>
+        <label asp-for="Name">Имя</label><br />
+        <input type="text" asp-for="Name" />
+    </p>
+    <p>
+        <label asp-for="ProductionYear">Год производства</label><br />
+        <input type="number" asp-for="ProductionYear" />
+    </p>
+    <p>
+        <label asp-for="Description">Описание</label><br />
+        <input type="text" asp-for="Description" />
+    </p>
+    <p>
+        <label asp-for="Price">Цена</label><br />
+        <input type="number" asp-for="Price" />
+    </p>
+    <p>
+        <label asp-for="Transmission">Коробка передач</label><br />
+        <select asp-for="Transmission" asp-items="Html.GetEnumSelectList<TransmissionType>()"></select>
+    </p>
+    <p>
+        <label asp-for="Fuel">Тип топлива</label><br />
+        <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+</form>
