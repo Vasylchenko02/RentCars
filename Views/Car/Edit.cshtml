@@ -1,7 +1,7 @@
-﻿@model RentCarsApp.Models.Car
+﻿@model RentCarsApp.Models.ViewModels.CarCreateViewModel
 
 <h2>Редактирование авто</h2>
-<form asp-action="edit" asp-controller="car" asp-route-id="@Model.Id">
+<form enctype="multipart/form-data" asp-action="edit" asp-controller="car" asp-route-id="@Model.Id">
     <p>
         <label asp-for="Name">Имя</label><br />
         <input type="text" asp-for="Name" />
@@ -25,6 +25,10 @@
     <p>
         <label asp-for="Fuel">Тип топлива</label><br />
         <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
+    </p>
+    <p>
+        <label asp-for="Image">Изображение</label><br />
+        <input type="file"  asp-for="Image" accept="image/png, image/jpeg"/>
     </p>
     <p>
         <input type="submit" value="Сохранить" />

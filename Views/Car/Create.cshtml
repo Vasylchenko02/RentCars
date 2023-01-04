@@ -1,13 +1,13 @@
-﻿@model RentCarsApp.Models.Car
+﻿@model RentCarsApp.Models.ViewModels.CarCreateViewModel
 <h2>Добавление автомобиля</h2>
-<form asp-action="create" asp-controller="car">
+<form enctype="multipart/form-data" asp-action="create" asp-controller="car">
     <p>
         <label asp-for="Name">Имя</label><br />
         <input type="text" asp-for="Name" />
     </p>
     <p>
         <label asp-for="ProductionYear">Год производства</label><br />
-        <input type="number" asp-for="ProductionYear" />
+        <input type="number" max="2023" min="1900" asp-for="ProductionYear" />
     </p>
     <p>
         <label asp-for="Description">Описание</label><br />
@@ -24,6 +24,10 @@
     <p>
         <label asp-for="Fuel">Тип топлива</label><br />
         <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
+    </p>
+    <p>
+        <label asp-for="Image">Изображение</label><br />
+        <input type="file"  asp-for="Image" accept="image/png, image/jpeg"/>
     </p>
     <p>
         <input type="submit" value="Отправить" />

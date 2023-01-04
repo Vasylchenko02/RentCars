@@ -10,8 +10,8 @@
     {
         <div class="card grow margin-left ">
             <a href="formularz.html" class="divrel">
-                
-                <img class="card-image" src="~/images/volkswagenpolo.png">
+                @{var image = item.ImagePath ?? "noimage.png";}
+                <img class="card-image" src="~/images/@image">
                 <h2 class="card-title">@item.Name</h2>
                 <p class="card-text">Год выпуска: @item.ProductionYear<br>Описание: @item.Description<br>Тип топлива: @item.Fuel<br>Коробка передач: @item.Transmission<br>
                 <br>Цена за день: @item.Price</p>
