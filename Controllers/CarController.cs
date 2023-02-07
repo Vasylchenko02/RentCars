@@ -36,9 +36,24 @@ namespace RentCarsApp.Controllers
         }
 
         // GET: CarController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            if (id != null)
+            {
+                Car? car = await db.Cars.FirstOrDefaultAsync(p => p.Id == id);
+                var model = new Car
+                {
+                    Id = car.Id,
+                    Name = car.Name,
+                    Description = car.Description,
+                    Price = car.Price,
+                    ProductionYear = car.ProductionYear,
+                    Transmission = car.Transmission,
+                    Fuel = car.Fuel,
+                };
+                if (car != null) return View(model);
+            }
+            return NotFound();
         }
 
         // GET: CarController/Create

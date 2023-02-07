@@ -8,13 +8,14 @@
 <section class="content">
     @foreach (var item in Model)
     {
-        <div class="card grow margin-left ">
-            <a href="formularz.html" class="divrel">
+        <div class="card grow">
+            <a class="card-size" href="Details/@item.Id" class="divrel">
                 @{var image = item.ImagePath ?? "noimage.png";}
                 <img class="card-image" src="~/images/@image">
                 <h2 class="card-title">@item.Name</h2>
-                <p class="card-text">Год выпуска: @item.ProductionYear<br>Описание: @item.Description<br>Тип топлива: @item.Fuel<br>Коробка передач: @item.Transmission<br>
-                <br>Цена за день: @item.Price</p>
+                <p class="card-text">Год выпуска: @item.ProductionYear<br>
+                <p class="card-text line-clamp">Описание: @item.Description<br></p>
+                <p class="card-text">Тип топлива: @item.Fuel<br>Коробка передач: @item.Transmission<br>Цена за день: @item.Price</p>
             </a> 
                 <a asp-action="Edit" asp-controller="Car" asp-route-id="@item.Id">Изменить</a>
                 <form asp-controller="Car" asp-action="Delete" method="post"  asp-route-id="@item.Id">

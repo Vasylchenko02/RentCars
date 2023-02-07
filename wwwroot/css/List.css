@@ -6,27 +6,23 @@
 }
 
 .content {
-    display: inline-block;
-    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 section {
     text-align: center;
-    background-image: url(image/glowna-background.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    width: 100%;
-    color: white;
+    color: black;
 }
 
 .card {
     background-color: white;
-    width: 280px;
+    width: 300px;
+    height: 100%;
     margin-bottom: 60px;
-    padding: 45px 45px 70px;
-    display: inline-block;
-    margin-right: 60px;
+    padding: 5px 5px 20px;
+    margin: 30px;
     -webkit-transition: 0.3s ease;
 }
 
@@ -37,23 +33,20 @@ section {
 }
 
 .card-title {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
 .card-text {
     font-size: 16px;
 }
-
-.margin-left {
-    margin-left: 30px;
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
-
-.no-margin-right {
-    margin-right: 0;
-}
-
 .grow:hover {
     box-shadow: 7px 7px #808080;
     -webkit-transform: translateX(-7px);
