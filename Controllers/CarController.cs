@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using RentCarsApp.Data;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RentCarsApp.Controllers
 {
@@ -26,16 +27,19 @@ namespace RentCarsApp.Controllers
             db = context;
             this.hostingEnviroment = hostingEnviroment;
         }
+        [Authorize]
         public ActionResult List()
         {
             return View(db.Cars.ToList());
         }
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: CarController/Details/5
+        [Authorize]
         public async Task<ActionResult> Details(int id)
         {
             if (id != null)
@@ -57,6 +61,7 @@ namespace RentCarsApp.Controllers
         }
 
         // GET: CarController/Create
+        [Authorize(Roles = "Moderator,Admin")]
         public ActionResult Create()
         {
             return View();
@@ -75,6 +80,7 @@ namespace RentCarsApp.Controllers
         }
         // POST: CarController/Create
         [HttpPost]
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Create(CarCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -97,6 +103,7 @@ namespace RentCarsApp.Controllers
         }
 
         // GET: CarController/Edit/5
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id != null)
@@ -117,6 +124,7 @@ namespace RentCarsApp.Controllers
             return NotFound();
         }
         [HttpPost]
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Edit(CarCreateViewModel model)
         {
 
@@ -135,6 +143,7 @@ namespace RentCarsApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Moderator,Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id != null)

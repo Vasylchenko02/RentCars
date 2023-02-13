@@ -10,8 +10,8 @@ namespace RentCarsApp.Helpers
         public static async Task InitializeAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             var adminEmail = "admin@gmail.com";
-            var password = "qwerty12";
-            var adminRole = "admin";
+            var password = "JziXM2mF.c+J%Rn";
+            var adminRole = "Admin";
             if (await roleManager.FindByNameAsync(adminRole) == null)
             {
                 await roleManager.CreateAsync(new IdentityRole(adminRole));

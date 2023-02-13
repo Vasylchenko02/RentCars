@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using RentCarsApp.Models;
 using RentCarsApp.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RentCarsApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;
@@ -18,6 +20,7 @@ namespace RentCarsApp.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+        
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
         public IActionResult Create() => View();
