@@ -45,17 +45,7 @@ namespace RentCarsApp.Controllers
             if (id != null)
             {
                 Car? car = await db.Cars.FirstOrDefaultAsync(p => p.Id == id);
-                var model = new Car
-                {
-                    Id = car.Id,
-                    Name = car.Name,
-                    Description = car.Description,
-                    Price = car.Price,
-                    ProductionYear = car.ProductionYear,
-                    Transmission = car.Transmission,
-                    Fuel = car.Fuel,
-                };
-                if (car != null) return View(model);
+                if (car != null) return View(car);
             }
             return NotFound();
         }
