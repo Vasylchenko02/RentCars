@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
 env:
-  AZURE_WEBAPP_NAME: RentCarsApp   # set this to your application's name
+  AZURE_WEBAPP_NAME: RentCarsApp-mm   # set this to your application's name
 
 jobs:
   build-and-deploy:
