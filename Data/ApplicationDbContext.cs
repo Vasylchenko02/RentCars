@@ -4,6 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using RentCarsApp.Models;
+using Azure.Identity;
+using Azure.Core;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace RentCarsApp.Data
 {
@@ -13,7 +17,6 @@ namespace RentCarsApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
         }
     }
 }
