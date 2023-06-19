@@ -1,8 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+	ViewData["Stylesheet"] = "/css/Index.css";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+	<section class="overlay-pic">
+		<div class="text-center">
+			<h1 class="title">The best car rental service!</h1><br>
+				<a asp-area="" asp-controller="Car" asp-action="List">
+					<h1 class="title green-title">Do not believe? Check out our ponies!</h1>
+				</a>
+		</div>
+	</section>
