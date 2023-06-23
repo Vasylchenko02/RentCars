@@ -1,35 +1,35 @@
 ﻿@model RentCarsApp.Models.ViewModels.CarCreateViewModel
-<h2>Добавление автомобиля</h2>
+<h2>Adding a car</h2>
 <form enctype="multipart/form-data" asp-action="create" asp-controller="car">
     <p>
-        <label asp-for="Name">Имя</label><br />
+        <label asp-for="Name">Name</label><br />
         <input type="text" asp-for="Name" />
     </p>
     <p>
-        <label asp-for="ProductionYear">Год производства</label><br />
+        <label asp-for="ProductionYear">Production year</label><br />
         <input type="number" max="2023" min="1900" asp-for="ProductionYear" />
     </p>
     <p>
-        <label asp-for="Description">Описание</label><br />
+        <label asp-for="Description">Description</label><br />
         <input type="text" asp-for="Description" />
     </p>
     <p>
-        <label asp-for="Price">Цена</label><br />
+        <label asp-for="Price">Price</label><br />
         <input type="number" asp-for="Price" />
     </p>
     <p>
-        <label asp-for="Transmission">Коробка передач</label><br />
+        <label asp-for="Transmission">Type of transmission</label><br />
         <select asp-for="Transmission" asp-items="Html.GetEnumSelectList<TransmissionType>()"></select>
     </p>
     <p>
-        <label asp-for="Fuel">Тип топлива</label><br />
+        <label asp-for="Fuel">Type of fuel</label><br />
         <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
     </p>
     <p>
-        <label asp-for="Image">Изображение</label><br />
+        <label asp-for="Image">Image</label><br />
         <input type="file"  asp-for="Image" accept="image/png, image/jpeg"/>
     </p>
     <p>
-        <input type="submit" value="Отправить" />
+        <input type="submit" value="Create" />
     </p>
 </form>
