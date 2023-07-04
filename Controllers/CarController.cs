@@ -27,12 +27,10 @@ namespace RentCarsApp.Controllers
             db = context;
             this.hostingEnviroment = hostingEnviroment;
         }
-        [Authorize]
         public ActionResult List()
         {
             return View(db.Cars.ToList());
         }
-        [Authorize]
         public ActionResult Index()
         {
             return View();
