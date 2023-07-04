@@ -14,6 +14,7 @@ namespace RentCarsApp.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Car> Cars { get; set; } = null!;
+        public DbSet<Order> Orders { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

@@ -1,4 +1,6 @@
-﻿namespace RentCarsApp.Models
+﻿using System.Collections.Generic;
+
+namespace RentCarsApp.Models
 {
     public class Car
     {
@@ -10,6 +12,7 @@
         public string ImagePath { get; set; }
         public TransmissionType Transmission { get; set; }
         public FuelType Fuel { get; set; }
+        public ICollection<Car> Cars { get; set; }
     }
     public enum TransmissionType
     {

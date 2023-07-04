@@ -1,6 +1,6 @@
 ﻿.overlay-pic {
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.65);
     background-image: url(../images/main-background.jpg);
     background-size: cover;
     background-position: center;
@@ -9,16 +9,31 @@
     width: 100%;
     color: white;
 }
-h1 {
+.title {
     padding-top: 90px;
-    font-size: 72px;
-    margin-bottom: 20px;
+    font-size: 24px;
+
+    margin: 40px;
+    margin-top: 0;
     text-shadow: 2px 2px 3px rgba(10,10,10,.4);
 }
-.green-title {
-	text-decoration: none;
-	color: #5DE100;
+.container-2 {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+
 }
-.green-title:hover {
-	color: #3D9200;
+.btn-see-car {
+    border: 2px solid;
+    background: #E6B563;
+    border-radius: 64px;
+    width: 550px;
+    height: 100px;
+    font-size: 28px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.btn-see-car:hover {
+    background-color: black; /* Green */
+    color: #E6B563;
 }
