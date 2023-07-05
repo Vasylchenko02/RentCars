@@ -3,8 +3,12 @@
 <h2>Редактирование авто</h2>
 <form enctype="multipart/form-data" asp-action="edit" asp-controller="car" asp-route-id="@Model.Id">
     <p>
-        <label asp-for="Name">Name</label><br />
-        <input type="text" asp-for="Name" />
+        <label asp-for="NameProducer">NameProducer</label><br />
+        <input type="text" asp-for="NameProducer" />
+    </p>
+    <p>
+        <label asp-for="NameModel">NameModel</label><br />
+        <input type="text" asp-for="NameModel" />
     </p>
     <p>
         <label asp-for="ProductionYear">Production year</label><br />

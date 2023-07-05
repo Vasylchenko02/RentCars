@@ -16,11 +16,16 @@
                 @{var image = item.ImagePath ?? "noimage.png";}
 
                 <a><img class="card-image" src="~/images/@image"></a>
-                <h2 class="card-title">@item.Name</h2>
-                <p class="card-text">Production year: @item.ProductionYear<br>
-                <p class="card-text line-clamp">Description: @item.Description<br></p>
-                <p class="card-text">Type of fuel: @item.Fuel<br>Type of transmission: @item.Transmission</p>
-                <h2 class="card-title">Price/day: @item.Price</h2>
+                <h2 class="card-title1 mg-l">@item.NameProducer</h2>
+                <h2 class="card-title2 mg-l">@item.NameModel</h2>
+                <p class="card-text mg-l">Production year: @item.ProductionYear<br>
+                <div class="card-desk">
+                    <p class="card-text">Description: @item.Description<br></p>
+                </div>
+                <div class="card-fueltype-div">
+                    <p class="card-fueltype">Type of fuel: @item.Fuel<br>Type of transmission: @item.Transmission</p>
+                </div>
+                <h2 class="card-price">Price/day: @item.Price$</h2>
                 <a href="Details/@item.Id"><button class="btn-rent"><span>See details!</span></button></a>
             @if (User.IsInRole("Moderator") || User.IsInRole("Admin"))
             {

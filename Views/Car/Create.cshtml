@@ -2,8 +2,12 @@
 <h2>Adding a car</h2>
 <form enctype="multipart/form-data" asp-action="create" asp-controller="car">
     <p>
-        <label asp-for="Name">Name</label><br />
-        <input type="text" asp-for="Name" />
+        <label asp-for="NameProducer">NameProducer</label><br />
+        <input type="text" asp-for="NameProducer" />
+    </p>
+    <p>
+        <label asp-for="NameModel">NameModel</label><br />
+        <input type="text" asp-for="NameModel" />
     </p>
     <p>
         <label asp-for="ProductionYear">Production year</label><br />

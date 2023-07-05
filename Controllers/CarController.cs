@@ -60,7 +60,7 @@ namespace RentCarsApp.Controllers
             if (model.Image != null)
             {
                 string uploadsFolder = Path.Combine(hostingEnviroment.WebRootPath, "images");
-                uniqueFileName = model.Name + "_" + Guid.NewGuid().ToString() + model.Image.FileName;
+                uniqueFileName = model.NameProducer + "_" + model.NameModel + "_" + Guid.NewGuid().ToString() + model.Image.FileName;
                 string FilePath = Path.Combine(uploadsFolder, uniqueFileName);
                 model.Image.CopyTo(new FileStream(FilePath, FileMode.Create));
             }
@@ -75,7 +75,8 @@ namespace RentCarsApp.Controllers
             {
                 Car car = new Car
                 {
-                    Name = model.Name,
+                    NameProducer = model.NameProducer,
+                    NameModel = model.NameModel,
                     Description = model.Description,
                     Price = model.Price,
                     ProductionYear = model.ProductionYear,
@@ -100,7 +101,8 @@ namespace RentCarsApp.Controllers
                 var model = new CarCreateViewModel
                 {
                     Id = car.Id,
-                    Name = car.Name,
+                    NameProducer = car.NameProducer,
+                    NameModel = car.NameModel,
                     Description = car.Description,
                     Price= car.Price,
                     ProductionYear = car.ProductionYear,
@@ -117,7 +119,8 @@ namespace RentCarsApp.Controllers
         {
 
             var car = db.Cars.First(car => car.Id == model.Id);
-            car.Name = model.Name;
+            car.NameProducer = model.NameProducer;
+            car.NameModel = model.NameModel;
             car.Description = model.Description;
             car.Price = model.Price;
             car.ProductionYear = model.ProductionYear;

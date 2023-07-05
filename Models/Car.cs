@@ -5,7 +5,8 @@ namespace RentCarsApp.Models
     public class Car
     {
         public int Id { get; set; }
-        public string Name { get; set; }   
+        public string NameProducer { get; set; }
+        public string NameModel { get; set; }
         public string Description { get; set; }
         public ushort ProductionYear { get; set; }
         public int Price { get; set; }

@@ -18,20 +18,20 @@ section {
 
 .card {
     background-color: #B8CBDE;
-    width: 300px;
-    height: 540px;
+    width: 330px;
+    height: 840px;
     margin-bottom: 60px;
-    padding: 5px 5px 20px;
-    margin: 30px;
+    margin: 15px;
     -webkit-transition: 0.3s ease;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .card-image {
-    width: 230px;
+    width: 300px;
     margin-bottom: 30px;
-    height: 140px;
+    height: 298px;
     border-radius: 10px;
+    margin: 15px 15px;
 }
 
 .card-title {
@@ -39,13 +39,45 @@ section {
     font-weight: 600;
     margin-bottom: 10px;
 }
-
+.mg-l {
+    margin-left: 15px;
+}
+.card-title1 {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 300;
+    font-style: Montserrat;
+}
+.card-title2 {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+}
+.card-price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.card-fueltype {
+    font-style: Montserrat;
+    font-size: 18px;
+}
+.card-fueltype-div {
+    margin-bottom: 20px;
+}
 .card-text {
     font-size: 16px;
+    text-align: left;
+}
+.card-desk {
+    width: 300px;
+    min-height: 170px;
+    margin-bottom: 20px;
+    margin-left: 15px;
 }
 .line-clamp {
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -55,15 +87,18 @@ section {
     transform: translateX(-7px);
 }
 .btn-rent {
-    width: 150px;
-    height: 34px;
-    font-size: 18px;
+    width: 190px;
+    height: 40px;
+    font-size: 24px;
+    font-style: Montserrat;
+    font-weight: 600;
     border-radius: 15px;
     background-color: #E6B563;
     border: none;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     font-weight: 600;
+    margin-bottom; 50px;
 }
 .btn-rent:hover {
     background-color: black;
