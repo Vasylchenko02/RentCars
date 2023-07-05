@@ -15,6 +15,7 @@ namespace RentCarsApp.Models.ViewModels
         public ushort ProductionYear { get; set; }
         public int Price { get; set; }
         public IFormFile Image { get; set; }
+        public List<IFormFile> Gallery { get; set;  }
         public TransmissionType Transmission { get; set; }
         public FuelType Fuel { get; set; }
     }

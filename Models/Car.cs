@@ -14,6 +14,7 @@ namespace RentCarsApp.Models
         public TransmissionType Transmission { get; set; }
         public FuelType Fuel { get; set; }
         public ICollection<Car> Cars { get; set; }
+        public ICollection<GalleryImage> Gallery { get; set; }
     }
     public enum TransmissionType
     {

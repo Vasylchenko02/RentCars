@@ -59,11 +59,29 @@ namespace RentCarsApp.Controllers
             string uniqueFileName = null;
             if (model.Image != null)
             {
-                string uploadsFolder = Path.Combine(hostingEnviroment.WebRootPath, "images");
-                uniqueFileName = model.NameProducer + "_" + model.NameModel + "_" + Guid.NewGuid().ToString() + model.Image.FileName;
-                string FilePath = Path.Combine(uploadsFolder, uniqueFileName);
-                model.Image.CopyTo(new FileStream(FilePath, FileMode.Create));
+                uniqueFileName = UploadFile(model.Image, model);
             }
+            return uniqueFileName;
+        }
+        private List<GalleryImage> UploadGallery(CarCreateViewModel model, Car car)
+        {
+            List<GalleryImage> images = new List<GalleryImage>();
+            if (model.Gallery != null)
+            {
+                foreach (var item in model.Gallery)
+                {
+                    var uniqueFileName = UploadFile(item, model);
+                    images.Add(new GalleryImage() { ImagePath = uniqueFileName, Car = car });
+                }
+            }
+            return images;
+        }
+        private string UploadFile(IFormFile file, CarCreateViewModel model)
+        {
+            string uploadsFolder = Path.Combine(hostingEnviroment.WebRootPath, "images");
+            var uniqueFileName = model.NameProducer + "_" + model.NameModel + "_" + Guid.NewGuid().ToString() + file.FileName;
+            string FilePath = Path.Combine(uploadsFolder, uniqueFileName);
+            file.CopyTo(new FileStream(FilePath, FileMode.Create));
             return uniqueFileName;
         }
         // POST: CarController/Create
@@ -82,8 +100,10 @@ namespace RentCarsApp.Controllers
                     ProductionYear = model.ProductionYear,
                     Transmission = model.Transmission,
                     Fuel = model.Fuel,
-                    ImagePath = UploadImage(model)
+                    ImagePath = UploadImage(model),
+
                 };
+                car.Gallery = UploadGallery(model, car);
                 db.Cars.Add(car);
                 await db.SaveChangesAsync();
                 return RedirectToAction("List");
@@ -128,7 +148,8 @@ namespace RentCarsApp.Controllers
             car.Fuel = model.Fuel;
             if (model.Image != null)
                 car.ImagePath = UploadImage(model);
-
+            if (model.Gallery != null)
+                car.Gallery = UploadGallery(model, car);
             await db.SaveChangesAsync();
             return RedirectToAction("List");
         }

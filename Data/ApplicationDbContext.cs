@@ -15,6 +15,7 @@ namespace RentCarsApp.Data
     {
         public DbSet<Car> Cars { get; set; } = null!;
         public DbSet<Order> Orders { get; set; }
+        public DbSet<GalleryImage> GalleryImages { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
