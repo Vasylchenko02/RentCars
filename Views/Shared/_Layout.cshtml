@@ -40,19 +40,19 @@
             </div>
         </nav>
     </header>
-    <div class="overlay-pic background-color-custom">
+    <div class="overlay-pic background-color-custom background-image-custom">
         <div class="container"> <!-- div class="container"> -->
             <main role="main"> <!-- class="container" -->
                 @RenderBody()
             </main>
         </div>
+        <footer class="border-top footer text-muted background-color-footer">
+            <hr class="hr-line"/>
+            <div class="container">
+                &copy; 2023 - Cars rent service, Vladyslav Vasylchenko. - <a asp-area="" asp-controller="Home" asp-action="Index">Privacy</a>
+            </div>
+        </footer>
     </div>
-    <hr class="hr-line"/>
-    <footer class="border-top footer text-muted background-color-custom">
-        <div class="container">
-            &copy; 2023 - Cars rent service, Vladyslav Vasylchenko. - <a asp-area="" asp-controller="Home" asp-action="Index">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -1,0 +1,18 @@
+﻿.no-back {
+    background: transparent;
+}
+
+.background-color-custom {
+    background-color: #DCDCDC;
+}
+.background-image-custom {
+    background-image: url(../images/background-car-image.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.desc-size {
+    width: 330px;
+    height: 170px;
+}

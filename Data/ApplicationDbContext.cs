@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace RentCarsApp.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext 
     {
         public DbSet<Car> Cars { get; set; } = null!;
         public DbSet<Order> Orders { get; set; }

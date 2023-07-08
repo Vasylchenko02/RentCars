@@ -42,7 +42,7 @@ namespace RentCarsApp.Controllers
         {
             if (id != null)
             {
-                Car? car = await db.Cars.FirstOrDefaultAsync(p => p.Id == id);
+                Car? car = await db.Cars.Include(c => c.Gallery).FirstOrDefaultAsync(p => p.Id == id);
                 if (car != null) return View(car);
             }
             return NotFound();
@@ -138,7 +138,7 @@ namespace RentCarsApp.Controllers
         public async Task<IActionResult> Edit(CarCreateViewModel model)
         {
 
-            var car = db.Cars.First(car => car.Id == model.Id);
+            var car = db.Cars.Include(c => c.Gallery).First(car => car.Id == model.Id);
             car.NameProducer = model.NameProducer;
             car.NameModel = model.NameModel;
             car.Description = model.Description;
@@ -149,7 +149,10 @@ namespace RentCarsApp.Controllers
             if (model.Image != null)
                 car.ImagePath = UploadImage(model);
             if (model.Gallery != null)
+            {
+                car.Gallery.Clear();
                 car.Gallery = UploadGallery(model, car);
+            }              
             await db.SaveChangesAsync();
             return RedirectToAction("List");
         }
@@ -160,7 +163,7 @@ namespace RentCarsApp.Controllers
         {
             if (id != null)
             {
-                Car? car = await db.Cars.FirstOrDefaultAsync(p => p.Id == id);
+                Car? car = await db.Cars.Include(c => c.Gallery).FirstOrDefaultAsync(p => p.Id == id);
                 if (car != null)
                 {
                     db.Cars.Remove(car);

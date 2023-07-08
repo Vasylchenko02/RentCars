@@ -1,43 +1,48 @@
-﻿@model RentCarsApp.Models.ViewModels.CarCreateViewModel
-<h2>Adding a car</h2>
-<form enctype="multipart/form-data" asp-action="create" asp-controller="car">
-    <p>
-        <label asp-for="NameProducer">NameProducer</label><br />
-        <input type="text" asp-for="NameProducer" />
-    </p>
-    <p>
-        <label asp-for="NameModel">NameModel</label><br />
-        <input type="text" asp-for="NameModel" />
-    </p>
-    <p>
-        <label asp-for="ProductionYear">Production year</label><br />
-        <input type="number" max="2023" min="1900" asp-for="ProductionYear" />
-    </p>
-    <p>
-        <label asp-for="Description">Description</label><br />
-        <input type="text" asp-for="Description" />
-    </p>
-    <p>
-        <label asp-for="Price">Price</label><br />
-        <input type="number" asp-for="Price" />
-    </p>
-    <p>
-        <label asp-for="Transmission">Type of transmission</label><br />
-        <select asp-for="Transmission" asp-items="Html.GetEnumSelectList<TransmissionType>()"></select>
-    </p>
-    <p>
-        <label asp-for="Fuel">Type of fuel</label><br />
-        <select asp-for="Fuel" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
-    </p>
-    <p>
-        <label asp-for="Image">Image</label><br />
-        <input type="file"  asp-for="Image" accept="image/png, image/jpeg"/>
-    </p>
-    <p>
-        <label asp-for="Gallery">Gallery</label><br />
-        <input type="file"  asp-for="Gallery" multiple accept="image/png, image/jpeg"/>
-    </p>
-    <p>
-        <input type="submit" value="Create" />
-    </p>
-</form>
+﻿@{
+    ViewData["Stylesheet"] = "/css/Create.css";
+}
+@model RentCarsApp.Models.ViewModels.CarCreateViewModel
+<section class="backgound-car-image">
+    <h2>Adding a car</h2>
+    <form enctype="multipart/form-data" asp-action="create" asp-controller="car">
+        <p>
+            <label asp-for="NameProducer">NameProducer</label><br />
+            <input class="no-back" type="text" asp-for="NameProducer" />
+        </p>
+        <p>
+            <label asp-for="NameModel">NameModel</label><br />
+            <input class="no-back" type="text" asp-for="NameModel" />
+        </p>
+        <p>
+            <label asp-for="ProductionYear">Production year</label><br />
+            <input class="no-back" type="number" max="2023" min="1900" asp-for="ProductionYear" />
+        </p>
+        <p>
+            <label asp-for="Description">Description</label><br />
+            <input class="no-back desc-size" type="text" asp-for="Description" />
+        </p>
+        <p>
+            <label asp-for="Price">Price</label><br />
+            <input class="no-back" type="number" asp-for="Price" />
+        </p>
+        <p>
+            <label asp-for="Transmission">Type of transmission</label><br />
+            <select class="no-back" asp-for="Transmission" asp-items="Html.GetEnumSelectList<TransmissionType>()"></select>
+        </p>
+        <p>
+            <label asp-for="Fuel">Type of fuel</label><br />
+            <select class="no-back" asp-for="Fuel" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
+        </p>
+        <p>
+            <label asp-for="Image">Image</label><br />
+            <input class="no-back" type="file"  asp-for="Image" accept="image/png, image/jpeg"/>
+        </p>
+        <p>
+            <label asp-for="Gallery">Gallery</label><br />
+            <input class="no-back" type="file"  asp-for="Gallery" multiple accept="image/png, image/jpeg"/>
+        </p>
+        <p>
+            <input class="btn-success" type="submit" value="Create" />
+        </p>
+    </form>
+</section>

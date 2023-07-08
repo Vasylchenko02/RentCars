@@ -54,6 +54,11 @@ button.accept-policy {
 }
 .background-color-custom {
     background-color: #DCDCDC;
+    background-size: cover;
+    min-height: 100vh;
+}
+.background-color-footer {
+    background-color: #DCDCDC;
 }
 .container-header {
     display: -ms-flexbox;
@@ -86,6 +91,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    min-height: 100%;
 }
 .footer {
   position: absolute;
